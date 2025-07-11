@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blair Realty Group - SEO Reports Dashboard</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f8f9fa;
+            color: #1a1a1a;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            color: #1e3a8a;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            color: #6b7280;
+            font-size: 1.1rem;
+            margin-bottom: 40px;
+        }
+        
+        .year-section {
+            background: white;
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            margin-bottom: 30px;
+        }
+        
+        .year-section h2 {
+            color: #1e3a8a;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+        
+        .reports-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        
+        .report-card {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid #e5e7eb;
+            text-align: center;
+            transition: all 0.3s;
+        }
+        
+        .report-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 24px rgba(0,0,0,0.1);
+            border-color: #3730a3;
+        }
+        
+        .report-card .month {
+            font-weight: 600;
+            font-size: 1.2rem;
+            color: #1e3a8a;
+            margin-bottom: 10px;
+        }
+        
+        .report-card .status {
+            font-size: 0.9rem;
+            color: #6b7280;
+            margin-bottom: 15px;
+        }
+        
+        .report-card a {
+            display: inline-block;
+            background: #3730a3;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background 0.3s;
+        }
+        
+        .report-card a:hover {
+            background: #1e3a8a;
+        }
+        
+        .report-card.upcoming {
+            opacity: 0.5;
+            pointer-events: none;
+        }
+        
+        .report-card.upcoming .status {
+            color: #9ca3af;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 60px;
+            color: #6b7280;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Blair Realty Group</h1>
+        <p class="subtitle">Monthly SEO Performance Reports</p>
+        
+        <div class="year-section">
+            <h2>2025</h2>
+            <div class="reports-grid">
+                <div class="report-card">
+                    <div class="month">July</div>
+                    <div class="status">✅ Available</div>
+                    <a href="2025/july/seo-report.html">View Report</a>
+                </div>
+                <div class="report-card upcoming">
+                    <div class="month">August</div>
+                    <div class="status">Upcoming</div>
+                    <a href="#">Coming Soon</a>
+                </div>
+                <div class="report-card upcoming">
+                    <div class="month">September</div>
+                    <div class="status">Upcoming</div>
+                    <a href="#">Coming Soon</a>
+                </div>
+                <div class="report-card upcoming">
+                    <div class="month">October</div>
+                    <div class="status">Upcoming</div>
+                    <a href="#">Coming Soon</a>
+                </div>
+                <div class="report-card upcoming">
+                    <div class="month">November</div>
+                    <div class="status">Upcoming</div>
+                    <a href="#">Coming Soon</a>
+                </div>
+                <div class="report-card upcoming">
+                    <div class="month">December</div>
+                    <div class="status">Upcoming</div>
+                    <a href="#">Coming Soon</a>
+                </div>
+            </div>
+        </div>
+        
+        <footer class="footer">
+            <p>Prepared by Blok.co | <a href="https://blairrg.com" target="_blank">blairrg.com</a></p>
+        </footer>
+    </div>
+</body>
+</html>
