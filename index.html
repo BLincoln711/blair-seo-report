@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SEO Performance Report - Blair Realty Group</title>
+    <title>Blair Realty Group - SEO Reports Dashboard</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
         
@@ -21,639 +21,145 @@
         }
         
         .container {
-            max-width: 1200px;
+            max-width: 1000px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 40px 20px;
         }
         
-        /* Header Section */
-        .header {
-            background: linear-gradient(135deg, #1e3a8a 0%, #3730a3 100%);
-            color: white;
-            padding: 60px 40px;
-            border-radius: 20px;
-            margin-bottom: 40px;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .header::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -10%;
-            width: 500px;
-            height: 500px;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
-            border-radius: 50%;
-        }
-        
-        .header h1 {
+        h1 {
             font-size: 2.5rem;
-            font-weight: 700;
+            color: #1e3a8a;
             margin-bottom: 10px;
-            position: relative;
-            z-index: 1;
         }
         
-        .header .subtitle {
-            font-size: 1.2rem;
-            opacity: 0.9;
-            position: relative;
-            z-index: 1;
+        .subtitle {
+            color: #6b7280;
+            font-size: 1.1rem;
+            margin-bottom: 40px;
         }
         
-        .report-date {
-            margin-top: 20px;
-            font-size: 0.9rem;
-            opacity: 0.8;
-            position: relative;
-            z-index: 1;
-        }
-        
-        /* Executive Summary */
-        .executive-summary {
+        .year-section {
             background: white;
-            padding: 40px;
+            padding: 30px;
             border-radius: 16px;
             box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-            margin-bottom: 40px;
+            margin-bottom: 30px;
         }
         
-        .executive-summary h2 {
-            font-size: 1.8rem;
-            margin-bottom: 20px;
+        .year-section h2 {
             color: #1e3a8a;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
         }
         
-        .summary-grid {
+        .reports-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
             gap: 20px;
-            margin-top: 30px;
         }
         
-        .summary-card {
+        .report-card {
             background: #f8f9fa;
-            padding: 25px;
+            padding: 20px;
             border-radius: 12px;
             border: 1px solid #e5e7eb;
-            transition: transform 0.2s, box-shadow 0.2s;
+            text-align: center;
+            transition: all 0.3s;
         }
         
-        .summary-card:hover {
+        .report-card:hover {
             transform: translateY(-2px);
             box-shadow: 0 6px 24px rgba(0,0,0,0.1);
+            border-color: #3730a3;
         }
         
-        .summary-card .label {
-            font-size: 0.85rem;
-            color: #6b7280;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 8px;
-        }
-        
-        .summary-card .value {
-            font-size: 2rem;
-            font-weight: 700;
-            color: #1a1a1a;
-            margin-bottom: 5px;
-        }
-        
-        .summary-card .change {
-            font-size: 0.9rem;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-        
-        .positive {
-            color: #10b981;
-        }
-        
-        .negative {
-            color: #ef4444;
-        }
-        
-        .neutral {
-            color: #6b7280;
-        }
-        
-        /* Key Metrics Section */
-        .metrics-section {
-            background: white;
-            padding: 40px;
-            border-radius: 16px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-            margin-bottom: 40px;
-        }
-        
-        .metrics-section h2 {
-            font-size: 1.8rem;
-            margin-bottom: 30px;
-            color: #1e3a8a;
-        }
-        
-        .metric-row {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 30px;
-            margin-bottom: 30px;
-        }
-        
-        .metric-item {
-            text-align: center;
-            padding: 20px;
-            background: #f8f9fa;
-            border-radius: 12px;
-            position: relative;
-        }
-        
-        .metric-item .icon {
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(135deg, #3730a3 0%, #5b21b6 100%);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 15px;
-            font-size: 1.5rem;
-        }
-        
-        .metric-item .value {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: #1a1a1a;
-            margin-bottom: 5px;
-        }
-        
-        .metric-item .label {
-            font-size: 0.9rem;
-            color: #6b7280;
-        }
-        
-        /* Traffic Chart Section */
-        .chart-section {
-            background: white;
-            padding: 40px;
-            border-radius: 16px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-            margin-bottom: 40px;
-        }
-        
-        .chart-section h2 {
-            font-size: 1.8rem;
-            margin-bottom: 30px;
-            color: #1e3a8a;
-        }
-        
-        .chart-placeholder {
-            background: #f8f9fa;
-            border-radius: 12px;
-            padding: 60px;
-            text-align: center;
-            color: #6b7280;
-            border: 2px dashed #e5e7eb;
-        }
-        
-        /* Keywords Performance */
-        .keywords-section {
-            background: white;
-            padding: 40px;
-            border-radius: 16px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-            margin-bottom: 40px;
-        }
-        
-        .keywords-section h2 {
-            font-size: 1.8rem;
-            margin-bottom: 30px;
-            color: #1e3a8a;
-        }
-        
-        .keywords-table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-        
-        .keywords-table th {
-            background: #f8f9fa;
-            padding: 15px;
-            text-align: left;
+        .report-card .month {
             font-weight: 600;
-            color: #374151;
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            border-bottom: 2px solid #e5e7eb;
-        }
-        
-        .keywords-table td {
-            padding: 15px;
-            border-bottom: 1px solid #f3f4f6;
-        }
-        
-        .keywords-table tr:hover {
-            background: #f9fafb;
-        }
-        
-        .keyword-name {
-            font-weight: 500;
-            color: #1a1a1a;
-        }
-        
-        .position-badge {
-            display: inline-block;
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 500;
-        }
-        
-        .position-1-3 {
-            background: #d1fae5;
-            color: #065f46;
-        }
-        
-        .position-4-10 {
-            background: #dbeafe;
-            color: #1e40af;
-        }
-        
-        .position-11-20 {
-            background: #fef3c7;
-            color: #92400e;
-        }
-        
-        .position-20plus {
-            background: #fee2e2;
-            color: #991b1b;
-        }
-        
-        /* Opportunities Section */
-        .opportunities-section {
-            background: linear-gradient(135deg, #fef3c7 0%, #fed7aa 100%);
-            padding: 40px;
-            border-radius: 16px;
-            margin-bottom: 40px;
-        }
-        
-        .opportunities-section h2 {
-            font-size: 1.8rem;
-            margin-bottom: 20px;
-            color: #92400e;
-        }
-        
-        .opportunity-list {
-            list-style: none;
-        }
-        
-        .opportunity-list li {
-            background: white;
-            padding: 20px;
-            margin-bottom: 15px;
-            border-radius: 12px;
-            display: flex;
-            align-items: start;
-            gap: 15px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-        }
-        
-        .opportunity-icon {
-            width: 40px;
-            height: 40px;
-            background: #f59e0b;
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-            color: white;
             font-size: 1.2rem;
-        }
-        
-        .opportunity-content h3 {
-            font-size: 1.1rem;
-            margin-bottom: 5px;
-            color: #1a1a1a;
-        }
-        
-        .opportunity-content p {
-            color: #6b7280;
-            font-size: 0.95rem;
-        }
-        
-        /* Backlink Analysis */
-        .backlink-section {
-            background: white;
-            padding: 40px;
-            border-radius: 16px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-            margin-bottom: 40px;
-        }
-        
-        .backlink-section h2 {
-            font-size: 1.8rem;
-            margin-bottom: 20px;
             color: #1e3a8a;
-        }
-        
-        .warning-box {
-            background: #fef3c7;
-            border: 1px solid #f59e0b;
-            border-radius: 12px;
-            padding: 20px;
-            margin-bottom: 20px;
-        }
-        
-        .warning-box h3 {
-            color: #92400e;
             margin-bottom: 10px;
         }
         
-        /* Footer */
-        .footer {
-            text-align: center;
-            padding: 40px;
-            color: #6b7280;
+        .report-card .status {
             font-size: 0.9rem;
+            color: #6b7280;
+            margin-bottom: 15px;
         }
         
-        .footer .contact {
-            margin-top: 20px;
-        }
-        
-        .footer a {
-            color: #3730a3;
+        .report-card a {
+            display: inline-block;
+            background: #3730a3;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
             text-decoration: none;
             font-weight: 500;
+            transition: background 0.3s;
         }
         
-        /* Responsive */
-        @media (max-width: 768px) {
-            .header h1 {
-                font-size: 2rem;
-            }
-            
-            .summary-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .metric-row {
-                grid-template-columns: 1fr;
-            }
-            
-            .keywords-table {
-                font-size: 0.9rem;
-            }
-            
-            .keywords-table th,
-            .keywords-table td {
-                padding: 10px;
-            }
+        .report-card a:hover {
+            background: #1e3a8a;
         }
         
-        /* Print Styles */
-        @media print {
-            body {
-                background: white;
-            }
-            
-            .container {
-                max-width: 100%;
-            }
-            
-            .header,
-            .executive-summary,
-            .metrics-section,
-            .chart-section,
-            .keywords-section,
-            .opportunities-section {
-                box-shadow: none;
-                break-inside: avoid;
-            }
+        .report-card.upcoming {
+            opacity: 0.5;
+            pointer-events: none;
+        }
+        
+        .report-card.upcoming .status {
+            color: #9ca3af;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 60px;
+            color: #6b7280;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <!-- Header -->
-        <header class="header">
-            <h1>SEO Performance Report</h1>
-            <p class="subtitle">Blair Realty Group | blairrg.com</p>
-            <p class="report-date">Report Period: January - July 2025 | Generated: July 11, 2025</p>
-        </header>
+        <h1>Blair Realty Group</h1>
+        <p class="subtitle">Monthly SEO Performance Reports</p>
         
-        <!-- Executive Summary -->
-        <section class="executive-summary">
-            <h2>Executive Summary</h2>
-            <p>This comprehensive SEO analysis reveals Blair Realty Group's current search engine performance and identifies strategic opportunities for growth. While the website shows strong brand recognition with #1 rankings for branded searches, there's significant potential to expand visibility for high-value real estate keywords in the Houston market.</p>
-            
-            <div class="summary-grid">
-                <div class="summary-card">
-                    <div class="label">Domain Rating</div>
-                    <div class="value">2.6</div>
-                    <div class="change neutral">↓ 0.2 from previous</div>
+        <div class="year-section">
+            <h2>2025</h2>
+            <div class="reports-grid">
+                <div class="report-card">
+                    <div class="month">July</div>
+                    <div class="status">✅ Available</div>
+                    <a href="2025/july/seo-report.html">View Report</a>
                 </div>
-                <div class="summary-card">
-                    <div class="label">Organic Keywords</div>
-                    <div class="value">61</div>
-                    <div class="change positive">↑ 11 keywords (+22%)</div>
+                <div class="report-card upcoming">
+                    <div class="month">August</div>
+                    <div class="status">Upcoming</div>
+                    <a href="#">Coming Soon</a>
                 </div>
-                <div class="summary-card">
-                    <div class="label">Organic Traffic</div>
-                    <div class="value">151</div>
-                    <div class="change negative">↓ 30 visits (-16.5%)</div>
+                <div class="report-card upcoming">
+                    <div class="month">September</div>
+                    <div class="status">Upcoming</div>
+                    <a href="#">Coming Soon</a>
                 </div>
-                <div class="summary-card">
-                    <div class="label">Referring Domains</div>
-                    <div class="value">84</div>
-                    <div class="change positive">↑ Quality backlinks growing</div>
+                <div class="report-card upcoming">
+                    <div class="month">October</div>
+                    <div class="status">Upcoming</div>
+                    <a href="#">Coming Soon</a>
+                </div>
+                <div class="report-card upcoming">
+                    <div class="month">November</div>
+                    <div class="status">Upcoming</div>
+                    <a href="#">Coming Soon</a>
+                </div>
+                <div class="report-card upcoming">
+                    <div class="month">December</div>
+                    <div class="status">Upcoming</div>
+                    <a href="#">Coming Soon</a>
                 </div>
             </div>
-        </section>
+        </div>
         
-        <!-- Key Metrics -->
-        <section class="metrics-section">
-            <h2>Key Performance Indicators</h2>
-            <div class="metric-row">
-                <div class="metric-item">
-                    <div class="icon" style="color: white;">🔗</div>
-                    <div class="value">157</div>
-                    <div class="label">Total Backlinks</div>
-                </div>
-                <div class="metric-item">
-                    <div class="icon" style="color: white;">📊</div>
-                    <div class="value">13</div>
-                    <div class="label">URL Rating</div>
-                </div>
-                <div class="metric-item">
-                    <div class="icon" style="color: white;">💰</div>
-                    <div class="value">$157</div>
-                    <div class="label">Traffic Value</div>
-                </div>
-                <div class="metric-item">
-                    <div class="icon" style="color: white;">🎯</div>
-                    <div class="value">95%</div>
-                    <div class="label">Branded Traffic</div>
-                </div>
-            </div>
-        </section>
-        
-        <!-- Traffic Overview -->
-        <section class="chart-section">
-            <h2>Organic Traffic Analysis</h2>
-            <div class="chart-placeholder">
-                <p style="font-size: 1.2rem; margin-bottom: 10px;">📈 Traffic Trend Overview</p>
-                <p>Current monthly traffic: 151 visits (down from 181)</p>
-                <p style="margin-top: 20px; font-size: 0.9rem;">Most traffic comes from branded searches, indicating strong brand recognition but limited non-branded visibility</p>
-            </div>
-        </section>
-        
-        <!-- Top Keywords -->
-        <section class="keywords-section">
-            <h2>Top Performing Keywords</h2>
-            <table class="keywords-table">
-                <thead>
-                    <tr>
-                        <th>Keyword</th>
-                        <th>Search Volume</th>
-                        <th>Traffic</th>
-                        <th>Position</th>
-                        <th>Type</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td class="keyword-name">blair realty group</td>
-                        <td>600</td>
-                        <td>123</td>
-                        <td><span class="position-badge position-1-3">#1</span></td>
-                        <td>Branded</td>
-                    </tr>
-                    <tr>
-                        <td class="keyword-name">blair realty</td>
-                        <td>30</td>
-                        <td>10</td>
-                        <td><span class="position-badge position-1-3">#1</span></td>
-                        <td>Branded</td>
-                    </tr>
-                    <tr>
-                        <td class="keyword-name">blair real estate</td>
-                        <td>20</td>
-                        <td>8</td>
-                        <td><span class="position-badge position-1-3">#1</span></td>
-                        <td>Branded</td>
-                    </tr>
-                    <tr>
-                        <td class="keyword-name">blair realty group reviews</td>
-                        <td>10</td>
-                        <td>4</td>
-                        <td><span class="position-badge position-1-3">#1</span></td>
-                        <td>Branded</td>
-                    </tr>
-                    <tr>
-                        <td class="keyword-name">lynn blair</td>
-                        <td>30</td>
-                        <td>2</td>
-                        <td><span class="position-badge position-4-10">#5</span></td>
-                        <td>Personal Brand</td>
-                    </tr>
-                    <tr>
-                        <td class="keyword-name">beacon hill waller tx</td>
-                        <td>150</td>
-                        <td>0</td>
-                        <td><span class="position-badge position-20plus">#36</span></td>
-                        <td>Local</td>
-                    </tr>
-                    <tr>
-                        <td class="keyword-name">waller real estate</td>
-                        <td>20</td>
-                        <td>0</td>
-                        <td><span class="position-badge position-20plus">#57</span></td>
-                        <td>Local</td>
-                    </tr>
-                </tbody>
-            </table>
-        </section>
-        
-        <!-- Opportunities -->
-        <section class="opportunities-section">
-            <h2>🚀 Strategic Growth Opportunities</h2>
-            <ul class="opportunity-list">
-                <li>
-                    <div class="opportunity-icon">1</div>
-                    <div class="opportunity-content">
-                        <h3>Local SEO Optimization</h3>
-                        <p>Currently missing from high-value searches like "Houston real estate agents" and "Cypress real estate". Creating location-specific landing pages for each service area (Houston, Cypress, Waller, Magnolia, The Woodlands) could capture 1000+ monthly searches.</p>
-                    </div>
-                </li>
-                <li>
-                    <div class="opportunity-icon">2</div>
-                    <div class="opportunity-content">
-                        <h3>Content Marketing Strategy</h3>
-                        <p>Develop buyer/seller guides, neighborhood profiles, and market reports to target informational searches. This addresses the 0% non-branded traffic issue and builds topical authority.</p>
-                    </div>
-                </li>
-                <li>
-                    <div class="opportunity-icon">3</div>
-                    <div class="opportunity-content">
-                        <h3>Agent Profile Optimization</h3>
-                        <p>Individual agent pages are already ranking but could be optimized further. Enhance agent profiles with local expertise, testimonials, and neighborhood specializations.</p>
-                    </div>
-                </li>
-                <li>
-                    <div class="opportunity-icon">4</div>
-                    <div class="opportunity-content">
-                        <h3>Technical SEO Enhancement</h3>
-                        <p>With a Domain Rating of only 2.6, focus on acquiring quality local backlinks from Houston business directories, real estate associations, and community partnerships.</p>
-                    </div>
-                </li>
-                <li>
-                    <div class="opportunity-icon">5</div>
-                    <div class="opportunity-content">
-                        <h3>Google Business Profile Integration</h3>
-                        <p>Leverage strong brand searches by ensuring Google Business Profile is fully optimized with photos, posts, and reviews to dominate local pack results.</p>
-                    </div>
-                </li>
-            </ul>
-        </section>
-        
-        <!-- Backlink Analysis -->
-        <section class="backlink-section">
-            <h2>Backlink Profile Analysis</h2>
-            <div class="warning-box">
-                <h3>⚠️ Backlink Quality Notice</h3>
-                <p>Analysis reveals some potentially low-quality backlinks from previous SEO efforts. We recommend conducting a thorough backlink audit and disavowing harmful links while focusing on earning high-quality, relevant backlinks from local Houston sources.</p>
-            </div>
-            
-            <div class="metric-row">
-                <div class="metric-item">
-                    <div class="value">84</div>
-                    <div class="label">Referring Domains</div>
-                </div>
-                <div class="metric-item">
-                    <div class="value">30</div>
-                    <div class="label">High-Quality Domains</div>
-                </div>
-                <div class="metric-item">
-                    <div class="value">54</div>
-                    <div class="label">Need Review</div>
-                </div>
-            </div>
-            
-            <p style="margin-top: 20px;">Notable quality backlinks include: Community Impact, Voyage Houston, Texas REALTORS®, and local event listings. Focus should be on building more local, relevant links.</p>
-        </section>
-        
-        <!-- Footer -->
         <footer class="footer">
-            <p>This report provides a comprehensive baseline of your current SEO performance. With strategic implementation of these recommendations, we project a 200-300% increase in organic traffic within 6-12 months, focusing on high-intent real estate searches in the Houston market.</p>
-            <div class="contact">
-                <p>Prepared by: Blok.co</p>
-                <p>Questions? Contact us for a detailed discussion of these findings.</p>
-            </div>
+            <p>Prepared by Blok.co | <a href="https://blairrg.com" target="_blank">blairrg.com</a></p>
         </footer>
     </div>
 </body>
